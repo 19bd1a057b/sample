@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="Style1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form
+        action="https://sheetdb.io/api/v1/dubjjbbu4pcx9"
+        method="post"
+        id="sheetdb-form"
+      >
+        <h2>To Register</h2>
+        <p>Fill out the form</p>
+        <div class="row100">
+          <div class="col">
+            <div class="inputBox">
+              <input
+                id="name"
+                onkeypress="return /[a-z]/i.test(event.key)"
+                type="text"
+                name="data[FirstName]"
+                required
+              />
+              <span class="text">First Name</span>
+              <div class="error"></div>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="inputBox">
+              <input
+                id="name"
+                onkeypress="return /[a-z]/i.test(event.key)"
+                type="text"
+                name="data[LastName]"
+                required
+              />
+              <span class="text">Last Name</span>
+              <div class="error"></div>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row100">
+          <div class="col">
+            <div class="inputBox">
+              <input id="username" type="text" name="data[Username]" required />
+              <span class="text">Userame</span>
+              <div class="error"></div>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row100">
+          <div class="col">
+            <div class="inputBox">
+              <input id="text" type="text" name="data[Email]" required />
+              <span class="text">Email</span>
+              <div class="error"></div>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row100">
+          <div class="col">
+            <div class="inputBox Password">
+              <input
+                id="password"
+                type="password"
+                name="data[Password]"
+                required
+              />
+              <span class="text">Enter Password</span>
+              <div class="error"></div>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="inputBox Password">
+              <input
+                id="password2"
+                type="password"
+                name="data[Re-EnterPassword]"
+                required
+              />
+              <span class="text">Re-enter Password</span>
+              <div class="error"></div>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row100">
+          <div class="col">
+            <div class="checkbox">
+              <input type="checkbox" required="" value="checkbox" /> By signing
+              up you agree to the <a href="/">Terms and Conditions</a> and
+              <a href="/">Privacy Policies</a>
+            </div>
+          </div>
+        </div>
+        <div class="row100">
+          <div class="col">
+            <div class="button">
+              <input
+                type="submit"
+                onsubmit="check()"
+                value="Create Account"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      var form = document.getElementById("sheetdb-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+        })
+          .then((response) => response.json())
+          .then((html) => {
+            // you can put any JS code here
+            //window.open('page2.html', '_blank');
+            alert("Account Created Successfully.");
+            window.open("login.html", "_blank");
+          });
+
+        function isValidEmail(emailAdress) {
+          let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+          if (emailAdress.match(regex)) return true;
+          else{
+            alert('Check Your Email Field');
+            return false;
+          }
+        }
+
+        var check = function () {
+          var s = isValidEmail();
+          let isEmailValid = checkEmail();
+
+          if (isEmailValid) {
+          } else {
+          }
+
+          if (
+            document.getElementById("pswd").value ==
+            document.getElementById("repswd").value
+          ) {
+            alert("Valid Registration");
+          } else {
+            alert("Password not matching");
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
