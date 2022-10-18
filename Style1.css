@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Poppins',sans-serif;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #012837;
+}
+.container{
+    width: 60%;
+    padding: 0px;
+    background: #eeee;
+    border-radius: 30px;
+}
+.container h2{
+    width: 100%;
+    color: #081a21;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;   
+}
+.container p{
+    width: 100%;
+    color: #081a21;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;   
+}
+.container .row100{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+}
+.container .row100 .col{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+.container .row100 .inputBox{
+    color: #081a21;
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+.container .row100 .inputBox input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none; /*changed from none to 4px*/
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #081a21;
+}
+.container .row100 .inputBox .text,.container .row100 .inputBox .email{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+    color: #081a21;/*input text color*/
+}
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text,
+.container .row100 .inputBox input:focus + .email,
+.container .row100 .inputBox input:valid + .email{
+    top: -35px;
+    left: -10px;
+
+}
+
+
+.container .row100 .inputBox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #eeee; /* change colour */
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+
+}
+.container .row100 .inputBox input:focus ~ .line,
+.container .row100 .inputBox input:valid ~ .line{
+    height: 100%;
+}
+input[type="submit"]{
+    border: none;
+    padding: 7px 100px;
+    cursor: pointer;
+    outline: none;
+    background: #081a21;
+    color: #eeee;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.container .row100 .col .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.container .row100 .inputBox.success input{
+
+    border-color: #09c372;
+}
+.container .row100 .inputBox .error input{
+    border-color: #ff3860;
+}
+.container .row100 .inputBox .error{
+    border-color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+
